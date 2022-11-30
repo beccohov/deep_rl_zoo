@@ -62,10 +62,10 @@ class RudolphAgent(types_lib.Agent):
     img = img.unsqueeze(0).to(self.api.device)
     image_input_ids_text = self.api.vae.get_codebook_indices(img, disable_gumbel_softmax=True)[0]
     
-    image_seq_length = args.image_tokens_per_dim ** 2
-    total_seq_length = args.l_text_seq_length + image_seq_length + 2
+    image_seq_length = self.args.image_tokens_per_dim ** 2
+    total_seq_length = self.args.l_text_seq_length + image_seq_length + 2
 
-    attention_mask_text = get_attention_mask(1, args.l_text_seq_length,
+    attention_mask_text = get_attention_mask(1, self.args.l_text_seq_length,
                                           args.image_tokens_per_dim, 
                                           2, args.device)
 
