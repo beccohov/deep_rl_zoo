@@ -1,5 +1,7 @@
 import deep_rl_zoo.types as types_lib
 import torch
+import numpy as np
+import torch
 
 class RudolphAgent(types_lib.Agent):
   def __init__(self, model, checkpoint_path, api, args, spc_tokens):
