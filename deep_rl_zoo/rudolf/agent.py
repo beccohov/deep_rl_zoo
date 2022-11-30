@@ -2,6 +2,7 @@ import deep_rl_zoo.types as types_lib
 import torch
 import numpy as np
 import torch
+from rudolph.model.utils import get_attention_mask
 from PIL import Image
 
 class RudolphAgent(types_lib.Agent):
