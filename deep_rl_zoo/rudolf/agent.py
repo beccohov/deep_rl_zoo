@@ -67,10 +67,10 @@ class RudolphAgent(types_lib.Agent):
     total_seq_length = self.args.l_text_seq_length + image_seq_length + 2
 
     attention_mask_text = get_attention_mask(1, self.args.l_text_seq_length,
-                                          args.image_tokens_per_dim, 
-                                          2, args.device)
+                                          self.args.image_tokens_per_dim, 
+                                          2, self.args.device)
 
-    input_ids_text = torch.cat((lt.to(args.device).unsqueeze(0), image_input_ids_text.to(args.device).unsqueeze(0), rt.to(device).unsqueeze(0)), dim=1)
+    input_ids_text = torch.cat((lt.to(self.args.device).unsqueeze(0), image_input_ids_text.to(self.args.device).unsqueeze(0), rt.to(self.args.device).unsqueeze(0)), dim=1)
 
     return input_ids_text, attention_mask_text
 
